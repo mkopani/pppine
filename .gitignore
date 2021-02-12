@@ -1,0 +1,12 @@
+bin
+/dist/
+downloads
+eggs
+lib
+lib64
+/*.egg-info/
+*.pyc
+setup.cfg
+setup.py
+/tests/
+pyproject.toml
