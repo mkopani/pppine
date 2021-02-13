@@ -10,3 +10,4 @@ setup.cfg
 setup.py
 /tests/
 pyproject.toml
+.DS_Store
