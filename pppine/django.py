@@ -1,4 +1,18 @@
 from django.urls import reverse
+from django.http import Http404
+
+
+def check_if_slug_nonempty(slug):
+    """
+    Raise a 404 Error if the required slug(s) of a page's querystring is/are not present.
+    """
+    if isinstance(slug, list):
+        for i in slug:
+            if i is None:
+                raise Http404()
+    else:
+        if slug is None:
+            raise Http404()
 
 
 def get_verbose_name(model, field):
