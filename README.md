@@ -11,7 +11,7 @@ Install using [pip](https://pypi.org/project/pppine/) with:
 pip install pppine
 ```
 
-## Components
+## What's In The Box?
 
 ### Python Helpers
 
@@ -58,11 +58,26 @@ products. They're solutions with a personal spin, some with more of a creative t
   
 ### Django Helpers
 
+Make your day-to-day Django tasks easier with these helpers and shorthand notations.
+
+* Raise a 404 if one or several URL slugs are nonempty.
+* Get the verbose name of a model instance's field.
+* Shorthand notation to check whether a Django object/query exists.
+* Shorthand notation to return a queried object or `None` if not found.
+* Reverse a URL namespace with query strings while writing the cleanest code. No f-strings or `%s` required on your end.
+* Fetch the URL of the page you were redirected from.
+* Update a model instance by dictionary rather than field by field.
+* Convert a Django QueryDict (e.g. `request.GET`) to a regular dictionary.
+* Safely update an object from another model instance with similar field names.
+
 ### Encoders
 
 * Get the ultimate encoder for JSON dumps. Very Django-friendly. (COMING SOON)
 
 ### Miscellaneous
+
+This is more of a data file than a set of helpers, yet still helpful when working with forms that involve countries, 
+provinces, and states.
 
 * Get a list of tuples for
   * Countries
