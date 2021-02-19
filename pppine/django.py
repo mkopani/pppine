@@ -2,6 +2,10 @@ from django.urls import reverse
 from django.http import Http404
 
 
+def get_field_names(model):
+    return [str(i).split('.')[-1] for i in model._meta.fields]
+
+
 def check_if_slug_nonempty(slug):
     """
     Raise a 404 Error if the required slug(s) of a page's querystring is/are not present.

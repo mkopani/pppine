@@ -27,6 +27,8 @@ products. They're solutions with a personal spin, some with more of a creative t
 * Create a temporary password that's easier to look at than UUID's.
 * Generate short UUID's. Based on [shortuuid](https://pypi.org/project/shortuuid/), but even shorter.
 
+(*Import from `pppine.python.generators`*)
+
 #### Date, Time, and DateTime Helpers
 
 * Get the current date and time, but in your local timezone.
@@ -36,6 +38,8 @@ products. They're solutions with a personal spin, some with more of a creative t
 * Convert a date object to a datetime object.
 * Parse a datetime from a string or number. Perfect when working with JSON and API's.
 
+(*Import from `pppine.python.datetime`*)
+
 #### Address & Contact Info Helpers
 
 * Capitalize all the right things in an address the way .title() can't.
@@ -44,6 +48,8 @@ products. They're solutions with a personal spin, some with more of a creative t
 * Properly capitalize people's names that start with 'Mc', 'Mac', 'de ', and so on.
 * Format a phone number properly based on an inputted country.
 * Check whether an inputted string is an email address.
+
+(*Import from `pppine.python.contact`*)
 
 #### General Helpers
 
@@ -55,11 +61,14 @@ products. They're solutions with a personal spin, some with more of a creative t
 * Turn a list, dictionary, or any other Python literal into a JSON string, but encode it in base64.
 * Take that base64-converted JSON string and convert it back into a Python literal.
 * Ever see some strings that should be a list? Turn those into an actual list.
+
+(*Import from `pppine.python.general`*)
   
 ### Django Helpers
 
 Make your day-to-day Django tasks easier with these helpers and shorthand notations.
 
+* Get a comprehensive list of a model's field names.
 * Raise a 404 if one or several URL slugs are nonempty.
 * Get the verbose name of a model instance's field.
 * Shorthand notation to check whether a Django object/query exists.
@@ -70,11 +79,14 @@ Make your day-to-day Django tasks easier with these helpers and shorthand notati
 * Convert a Django QueryDict (e.g. `request.GET`) to a regular dictionary.
 * Safely update an object from another model instance with similar field names.
 
+(*Import from `pppine.django`*)
+
 ### Encoders
 
 * Get the ultimate encoder for JSON dumps. Very Django-friendly. (COMING SOON)
 
 ### Miscellaneous
+
 
 This is more of a data file than a set of helpers, yet still helpful when working with forms that involve countries, 
 provinces, and states.
@@ -103,3 +115,5 @@ e.g.
   ('NU', 'Nunavut')
 ]
 ```
+
+(*Import from `pppine.misc`*)

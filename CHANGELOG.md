@@ -1,5 +1,11 @@
 # Changelog
 
+v1.0.4 (2021-02-18)
+-------------------
+
+* NEW: Get a comprehensive list of a model's field names by calling get_field_names() from the Django component.
+* Updates to README
+
 v1.0.3 (2021-02-17)
 -------------------
 
