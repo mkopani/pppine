@@ -1,14 +1,10 @@
 # Changelog
 
-v1.0.6 (2021-02-20)
--------------------
-
-* Added a date-safe encoder that converts dates to integers for front-end parsing.
-
-v1.0.5 (2021-02-20)
+v1.1 (2021-02-20)
 -------------------
 
 * NEW: Avoid running into problems when converting your data to JSON strings by using our universalized version of the comprehensive DjangoJSONEncoder.
+* Also added a date-safe encoder that converts dates to integers for front-end parsing.
 * Fixed importlib import statement to properly detect whether Django is installed.
 
 v1.0.4 (2021-02-18)
