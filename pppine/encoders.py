@@ -1,5 +1,6 @@
 import json
 import datetime
+from bson.json_util import default as bson_default
 from importlib.util import find_spec
 
 django_found = find_spec('django') is not None
@@ -45,3 +46,13 @@ class UniversalJSONEncoder(json.JSONEncoder):
 
             return super().default(o)
 
+
+class DateSafeEncoder(UniversalJSONEncoder):
+    """
+    Encodes dates as integers for front-end parsing purposes.
+    """
+    def default(self, o):
+        if isinstance(o, (datetime.datetime, datetime.date)):
+            return bson_default(o)
+        else:
+            return super().default(o)

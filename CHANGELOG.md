@@ -1,5 +1,10 @@
 # Changelog
 
+v1.0.6 (2021-02-20)
+-------------------
+
+* Added a date-safe encoder that converts dates to integers for front-end parsing.
+
 v1.0.5 (2021-02-20)
 -------------------
 
