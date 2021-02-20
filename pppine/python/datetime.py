@@ -1,9 +1,9 @@
-import importlib
+from importlib.util import find_spec
 import datetime
 from dateutil.relativedelta import relativedelta
 import pytz
 
-django_found = importlib.find_spec('django') is not None
+django_found = find_spec('django') is not None
 utc = pytz.UTC
 
 

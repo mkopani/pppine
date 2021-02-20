@@ -83,7 +83,7 @@ Make your day-to-day Django tasks easier with these helpers and shorthand notati
 
 ### Encoders
 
-* Get the ultimate encoder for JSON dumps. Very Django-friendly. (COMING SOON)
+* Get the ultimate encoder for JSON dumps. Very Django-friendly.
 
 ### Miscellaneous
 
