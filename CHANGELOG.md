@@ -4,6 +4,7 @@ v1.0.5 (2021-02-20)
 -------------------
 
 * NEW: Avoid running into problems when converting your data to JSON strings by using our universalized version of the comprehensive DjangoJSONEncoder.
+* Fixed importlib import statement to properly detect whether Django is installed.
 
 v1.0.4 (2021-02-18)
 -------------------
