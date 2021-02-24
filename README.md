@@ -85,8 +85,13 @@ Make your day-to-day Django tasks easier with these helpers and shorthand notati
 
 * Get the ultimate encoder for JSON dumps. Very Django-friendly.
 
-### Miscellaneous
 
+### Middleware
+
+* Have Django automatically store an authenticated user's timezone (as saved in their profile) 
+  in the current session variables
+
+### Miscellaneous
 
 This is more of a data file than a set of helpers, yet still helpful when working with forms that involve countries, 
 provinces, and states.

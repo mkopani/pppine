@@ -1,5 +1,17 @@
 # Changelog
 
+v1.2 (2021-02-21)
+-----------------
+
+* Added a middleware component for Django projects.
+    * Have Django automatically store an authenticated user's timezone (as saved in their profile) 
+        in the current session variables.
+
+v1.1.1 (2021-02-20)
+-------------------
+
+* Addressed import issues
+
 v1.1 (2021-02-20)
 -------------------
 

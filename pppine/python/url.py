@@ -1,3 +1,6 @@
+from urllib.parse import quote
+
+
 def url_has_param(url, param):
     """Checks whether a URL contains specified parameter."""
     url = str(url)

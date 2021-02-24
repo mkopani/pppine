@@ -1,7 +1,10 @@
+from importlib.util import find_spec
 import phonenumbers as pn
 
 from .general import replace_at_index
 from ..misc import get_countries
+
+django_found = find_spec('django') is not None
 
 
 def address_case(address):
@@ -156,9 +159,13 @@ def prettify_phone(phone, country='CA', with_country_code=False, no_fail=True):
     fmt = pn.PhoneNumberFormat.NATIONAL if not with_country_code else pn.PhoneNumberFormat.INTERNATIONAL
 
     if no_fail:
+        exceptions = (TypeError, ValueError)
+        if django_found:
+            from django.core.exceptions import ValidationError
+            exceptions.append(ValidationError)
         try:
             result = pn.format_number(phone_obj, fmt)
-        except (TypeError, ValueError, ValidationError):
+        except exceptions:
             result = phone
     else:
         result = pn.format_number(phone_obj, fmt)
