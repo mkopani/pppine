@@ -1,4 +1,6 @@
 import json
+import uuid
+from decimal import Decimal
 import datetime
 from bson.json_util import default as bson_default
 from importlib.util import find_spec
@@ -36,7 +38,7 @@ class UniversalJSONEncoder(json.JSONEncoder):
                 return duration_iso_string(o)
             else:
                 return str(o)
-        elif isinstance(o, (decimal.Decimal, uuid.UUID)):
+        elif isinstance(o, (Decimal, uuid.UUID)):
             return str(o)
         else:
             if django_found:

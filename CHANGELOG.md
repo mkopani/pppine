@@ -1,5 +1,20 @@
 # Changelog
 
+v1.3.2 (2021-08-25)
+
+* General fixes
+* Changed author email
+
+v1.3.1 (2021-03-24)
+-----------------
+
+* More fixes to import statements
+
+v1.3 (2021-03-06)
+-----------------
+
+* Add query string parameters to a URL with `add_url_params()` in `urls`.
+
 v1.2 (2021-02-21)
 -----------------
 

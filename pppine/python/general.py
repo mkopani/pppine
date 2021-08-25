@@ -1,28 +1,33 @@
+import json
 import magic
+import base64
+from pppine.encoders.json import UniversalJSONEncoder
+from bson.json_util import object_hook
+from string import digits
 
 
-def replace_at_index(stringue: str, new_char: str, index: int, no_fail: bool = False):
+def replace_at_index(string: str, new_char: str, index: int, no_fail: bool = False):
     """
     Replace a string's character at the specified index.
 
-    :param stringue: The original string.
+    :param string: The original string.
     :param new_char: The new character(s).
     :param index: The index whose character you want to replace.
     :param no_fail: If True, silently fail and return original string.
     :return: A new string with the change applied.
     """
-    n = len(stringue)
+    n = len(string)
     if index not in range(n):
         if not no_fail:
-            raise ValueError(f"Index out-of-bounds. Must be 0 < index ≤ {len(stringue)}.")
+            raise ValueError(f"Index out-of-bounds. Must be 0 < index ≤ {len(string)}.")
         else:
-            return stringue
+            return string
 
     max_index = n - 1
 
-    new_string = stringue[:index] + new_char
+    new_string = string[:index] + new_char
     if index < max_index:
-        new_string += stringue[index + 1:]
+        new_string += string[index + 1:]
 
     return new_string
 
@@ -117,7 +122,7 @@ def json_dumps_b64(i, url_safe=True):
     :param url_safe: Whether to encode for use in a URL query string.
     :return: A base64 representation of a JSON string.
     """
-    o = json.dumps(i, cls=CustomEncoder)
+    o = json.dumps(i, cls=UniversalJSONEncoder)
     o = o.encode(encoding='UTF-8')
     o = base64.b64encode(o) if not url_safe else base64.urlsafe_b64encode(o)
     o = o.decode(encoding='UTF-8')
@@ -143,11 +148,11 @@ def json_loads_b64(i: str, url_safe=False):
     return o
 
 
-def verbose_list_to_list(stringue: str, as_string=False, conjunction='and', union='or'):
+def verbose_list_to_list(string: str, as_string=False, conjunction='and', union='or'):
     """
     Convert a verbose list, such as "a, b, c", "a / b / c", "a/b/c", etc. into a Python list.
 
-    :param stringue: A string input
+    :param string: A string input
     :param as_string: If true, function returns a JSON string rather than a list.
     :param conjunction: 'and', or whichever language's equivalent you expect to find before
            the last item of a verbose list.
@@ -162,26 +167,26 @@ def verbose_list_to_list(stringue: str, as_string=False, conjunction='and', unio
     i = 0
     while not already_separated and i < len(separators):
         sep = separators[i]
-        if sep in stringue:
+        if sep in string:
             # Convert string to list of strings if multiple elements are present
             good_to_split = True
 
             if good_to_split and sep == '/':
-                idx = stringue.index(sep)
-                if 0 < idx < len(stringue):
-                    before = stringue[idx - 1]
-                    after = stringue[idx + 1]
+                idx = string.index(sep)
+                if 0 < idx < len(string):
+                    before = string[idx - 1]
+                    after = string[idx + 1]
 
-                    if all(x in numbers_string for x in [before, after]):
+                    if all(x in digits for x in [before, after]):
                         good_to_split = False
 
-                    temp_split = stringue.split(sep)
+                    temp_split = string.split(sep)
                     if len(temp_split) == 2 and all(len(x) == 1 for x in temp_split):
                         # e.g. C/V
                         good_to_split = False
 
             if good_to_split:
-                result = stringue.split(sep)
+                result = string.split(sep)
                 already_separated = True
 
         i += 1

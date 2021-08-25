@@ -70,7 +70,7 @@ def get_datetime_range(dt: datetime.datetime):
     return [dt_lower, dt_upper]
 
 
-def date_to_datetime(date_obj: date = None) -> datetime:
+def date_to_datetime(date_obj: datetime.date = None) -> datetime:
     """
     Convert date object to midnight datetime object. No input convert's today's date.
     """
@@ -118,12 +118,12 @@ def parse_datetime(in_put, as_date: bool = False, preserve_time: bool = True, tz
 
     if o:
         if tz:
-            if isinstance(o, date):
+            if isinstance(o, datetime.date):
                 o = date_to_datetime(o)
             o = pytz.timezone(tz).localize(dt=o) if isinstance(tz, str) else tz.localize(dt=o)
 
         if as_date:
-            if not isinstance(o, date):
+            if not isinstance(o, datetime.date):
                 o = o.date()
         else:
             if not preserve_time:

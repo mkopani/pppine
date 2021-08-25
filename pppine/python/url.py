@@ -17,5 +17,19 @@ def add_url_param(url, param_key, param_value):
     return url
 
 
+def add_url_params(url, kwargs: dict):
+    url = str(url)
+    already_has_params = len(url.split('?')) > 1
+    first_separator = '?' if not already_has_params else '&'
+    i = 0
+
+    for key, value in kwargs.items():
+        separator = first_separator if i <= 0 else '&'
+        url += f'{separator}{key}={value}'
+        i += 1
+
+    return url
+
+
 def encode_url_param(p):
     return quote(str(p).encode(encoding='utf-8'))
